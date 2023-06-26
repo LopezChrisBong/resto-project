@@ -1,5 +1,5 @@
 <template>
-<h1 class="font-bold text-xl">Sign Up</h1>
+<h1 class="font-bold text-xl mt-14">Sign Up</h1>
 
 <div class="">
     <form>
@@ -9,6 +9,10 @@
             <button class="border p-1 rounded-lg mt-3 bg-green-200 font-semibold shadow" @click="signUp">Sign Up</button>
     </form>
 </div>
+<div class="m-4">
+<router-link to="/" >Login</router-link>    
+</div>
+
 </template>
 <script>
 import axios from 'axios'
@@ -30,14 +34,21 @@ export default {
             email:this.email,
             password: this.password
            });
-           console.warn(result);
+          // console.warn(result);
            if(result.status ==201){
             
             localStorage.setItem("user-info",JSON.stringify(result.data))
-            this.$router.replace({path:'/home'})
+            this.$router.push({path:'/home'})
            }
         }
     }
+    // ,  
+    // mounted(){
+    //     let user =localStorage.getItem('user-info');
+    //     if(user){
+    //         this.$router.push({path:'/home'})
+    //     }
+    // }
 }
 </script>
 

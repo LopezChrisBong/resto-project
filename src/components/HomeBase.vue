@@ -3,10 +3,10 @@
 </template>
 
 <script lang="ts">
-import { Vue } from 'vue-class-component';
-
-export default class Homebase extends Vue {
+export default{
+    name:'home'
 }
+
 </script>
 <style scoped lang="scss">
 
