@@ -30,17 +30,17 @@ export default {
             let result = await axios.get(
                 `http://localhost:3000/user?email=${this.email}&password=${this.password}`
             );
-            if(result.status == 200 && result.data.legnth > 0)
+            if(result.status == 200)
             {
             localStorage.setItem("user-info",JSON.stringify(result.data[0]))
-            this.$router.push({path:'/home'})
+            this.$router.push({name:'home'})
            }
         }
     },  
     mounted(){
         let user =localStorage.getItem('user-info');
         if(user){
-            this.$router.push({path:'/home'})
+            this.$router.push({name:'home'})
         }
     }
 }

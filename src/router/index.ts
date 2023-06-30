@@ -3,11 +3,14 @@ import HomeView from '../views/HomeView.vue'
 import Sign from '../views/Sign.vue'
 import Login from '../views/Login.vue'
 import Header from '../views/Header.vue'
+
+
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/home',
     name: 'home',
-    component: HomeView
+    component: HomeView,
+    meta: {requiresAuth: true},
   },
   {
     path: '/about',
@@ -27,7 +30,7 @@ const routes: Array<RouteRecordRaw> = [
     name: 'login',
     component: Login
   },
-  {
+  { 
     path: '/header',
     name: 'header',
     component: Header
@@ -37,6 +40,21 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
+});
+
+router.beforeEach( (to,from,next) => {
+  let routerAuthCheck = true;
+      if (to.matched.some(record => record.meta.requiresAuth)){
+          if(routerAuthCheck){
+              next();
+          }
+          else{
+              router.replace('/')
+          }
+      }
+      else{
+        next();
+      }
 });
 
 export default router

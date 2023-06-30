@@ -1,8 +1,9 @@
 <template>
     <div class="mb-12">
         <nav class="shadow mb-5">
-    <router-link to="/home"><button>Home</button></router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/home" class="hover:bg-sky-700"><button>Home</button></router-link> |
+    <router-link to="/about" class="hover:bg-sky-700">About</router-link> |
+    <a @click="logout" v-if="this.$store.userIsAuthorized">Logout</a>
   </nav>
    
     </div>
@@ -10,7 +11,13 @@
 <script>
 
 export default{
-
+    name:'Header',
+    methods:{
+        logout(){
+             localStorage.clear();
+             this.$router.push({path:'/'})
+        }
+    }
 }
 </script>
 <style lang="scss">

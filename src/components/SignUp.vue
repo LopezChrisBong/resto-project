@@ -42,13 +42,13 @@ export default {
            }
         }
     }
-    // ,  
-    // mounted(){
-    //     let user =localStorage.getItem('user-info');
-    //     if(user){
-    //         this.$router.push({path:'/home'})
-    //     }
-    // }
+    ,  
+    mounted(){
+        let user =localStorage.getItem('user-info');
+        if(user){
+            this.$router.push({path:'/home'})
+        }
+    }
 }
 </script>
 
