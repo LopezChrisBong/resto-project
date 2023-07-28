@@ -3,7 +3,7 @@
         <nav class="shadow mb-5">
     <router-link to="/home" class="hover:bg-sky-700"><button>Home</button></router-link> |
     <router-link to="/about" class="hover:bg-sky-700">About</router-link> |
-    <a @click="logout" v-if="this.$store.userIsAuthorized">Logout</a>
+    <a @click="logout" >Logout</a>
   </nav>
    
     </div>

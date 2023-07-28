@@ -1,16 +1,23 @@
 <template>
-<h1 class="font-bold text-xl mt-14">Sign Up</h1>
+    <div class="flex justify-center">
+       <h1 class="font-bold text-xl mt-14">Sign Up</h1> 
+    </div>
 
-<div class="">
-    <form>
+
+<div class="flex justify-center">
+        <form>
             <input type="text" v-model="name" placeholder="Enter Name" class="border mb-2 px-12 py-1" /><br/>
             <input type="text" v-model="email" placeholder="Enter Email" class="border mb-2 px-12 py-1"/><br/>
             <input type="password" v-model="password" placeholder="Enter Password" class="border px-12 py-1" /> <br/>
-            <button class="border p-1 rounded-lg mt-3 bg-green-200 font-semibold shadow" @click="signUp">Sign Up</button>
-    </form>
+            <div class="flex justify-between">
+                <button class="border p-1 rounded-lg mt-3 bg-green-200 font-semibold shadow" @click="signUp">Sign Up</button>
+                <button class="border p-1 rounded-lg mt-3 bg-green-200 font-semibold shadow"><router-link to="/" >Login</router-link> </button> 
+            </div>
+           
+        </form>
 </div>
 <div class="m-4">
-<router-link to="/" >Login</router-link>    
+  
 </div>
 
 </template>
